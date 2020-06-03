@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   ContainerHeader,
   WrapperHeader,
@@ -65,6 +65,28 @@ const ListDay = [
 const Header = () => {
     const [lunch, setLunch] = useState(true);
     const [dinner, setDinner] = useState(false);
+    const prevScroll = useRef(0);
+    const [scrollUp, setScrollUp] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScroll = window.scrollY;
+            if (prevScroll.current < currentScroll && scrollUp) {
+                setScrollUp(false);
+            }
+            if (prevScroll.current > currentScroll && !scrollUp) {
+                setScrollUp(true);
+            }
+            if (currentScroll === 0) {
+              setScrollUp(false);
+            }
+
+            prevScroll.current = currentScroll;
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [scrollUp]);
 
     const handleClick = (e) => {
         let value = e.target.value;
@@ -103,7 +125,7 @@ const Header = () => {
               );
             })}
           </HeaderMiddle>
-          <HeaderBottom>
+          <HeaderBottom scrollTop={scrollUp}>
             <TypeTime active={lunch} value="lunch" onClick={handleClick}>
               Lunch
             </TypeTime>

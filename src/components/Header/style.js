@@ -96,7 +96,7 @@ const Date = styled.div`
 
 const HeaderBottom = styled.div`
   padding: 8px 16px 8px 16px;
-  display: flex;
+  display: ${(props) => (props.scrollTop ? "none" : "flex")};
 `;
 
 const TypeTime = styled.button`

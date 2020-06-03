@@ -45,6 +45,7 @@ class Body extends Component {
                 this.state.data.map((d,i) => {
                     return (
                       <Card
+                        key={i}
                         image={d.image}
                         rating={d.rating}
                         title={d.title}
