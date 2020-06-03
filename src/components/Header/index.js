@@ -86,7 +86,7 @@ const Header = () => {
               </TextBottom>
             </HeaderText>
           </HeaderTop>
-          <HeaderMiddle onTouchStart={() => console.log('start')}>
+          <HeaderMiddle>
             {ListDay.map((d, i) => {
               return (
                 <Calendar key={i} active={d.active}>

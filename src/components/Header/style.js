@@ -6,6 +6,7 @@ const ContainerHeader = styled.header`
     min-height: 50px;
     width: 100%;
     color: #424749;
+    max-width: 414px;
 `;
 
 const WrapperHeader = styled.div`
