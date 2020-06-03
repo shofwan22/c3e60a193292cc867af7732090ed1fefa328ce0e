@@ -22,36 +22,43 @@ const ListDay = [
     day: "sen",
     date: "10",
     active: false,
+    disable: false,
   },
   {
     day: "sel",
     date: "11",
     active: false,
+    disable: false,
   },
   {
     day: "rab",
     date: "12",
     active: false,
+    disable: false,
   },
   {
     day: "kam",
     date: "13",
     active: true,
+    disable: false,
   },
   {
     day: "jum",
     date: "14",
     active: false,
+    disable: false,
   },
   {
     day: "sab",
     date: "15",
     active: false,
+    disable: true,
   },
   {
     day: "min",
     date: "16",
     active: false,
+    disable: true,
   },
 ];
 
@@ -89,7 +96,7 @@ const Header = () => {
           <HeaderMiddle>
             {ListDay.map((d, i) => {
               return (
-                <Calendar key={i} active={d.active}>
+                <Calendar key={i} active={d.active} disable={d.disable}>
                   <Day>{d.day}</Day>
                   <Date>{d.date}</Date>
                 </Calendar>

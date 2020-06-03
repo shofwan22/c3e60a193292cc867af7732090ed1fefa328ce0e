@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 const ContainerHeader = styled.header`
     position: fixed;
+    top: 0;
     box-shadow: 0px 8px 10px 0px rgba(10, 31, 68, 0.1);
     min-height: 50px;
     width: 100%;
     color: #424749;
     max-width: 414px;
+    background: #fff;
 `;
 
 const WrapperHeader = styled.div`
@@ -74,10 +76,11 @@ const Calendar = styled.div`
     justify-content: flex-end;
   }
 
-  background-color: ${props => props.active && "#424749"};
-  color: ${props => props.active && "#fff"};
-  width: ${props => props.active && "40px"};
-  border-radius: ${props => props.active && "100%"};
+  cursor: ${(props) => (props.disable ? "not-allowed" : "pointer")};
+  background-color: ${(props) => props.active && "#424749"};
+  color: ${(props) => (props.active && "#fff") || (props.disable && "#e2e4e4")};
+  width: ${(props) => props.active && "40px"};
+  border-radius: ${(props) => props.active && "100%"};
 `;
 
 const Day = styled.div`
