@@ -62,7 +62,7 @@ const ListDay = [
   },
 ];
 
-const Header = () => {
+const Header = (props) => {
     const [lunch, setLunch] = useState(true);
     const [dinner, setDinner] = useState(false);
     const prevScroll = useRef(0);
@@ -99,6 +99,9 @@ const Header = () => {
         }
     }
 
+    const handleModal = () => {
+      props.showModal(true);
+    }
 
     return (
       <ContainerHeader>
@@ -109,7 +112,7 @@ const Header = () => {
             </BackButton>
             <HeaderText>
               <TextTop>Alamat Pengantaran</TextTop>
-              <TextBottom>
+              <TextBottom onClick={handleModal}>
                 <TextPlace>Tokopedia Tower</TextPlace>
                 <ExpandIcon className="material-icons">expand_more</ExpandIcon>
               </TextBottom>
