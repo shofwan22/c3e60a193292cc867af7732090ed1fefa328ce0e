@@ -16,6 +16,9 @@ import {
 } from "./style";
 
 const Card = (props) => {
+    const handleAdd = () => {
+      props.addCart(true);
+    }
     return (
       <ContainerCard>
         <ImageCard src={props.image}></ImageCard>
@@ -34,7 +37,7 @@ const Card = (props) => {
           </MainText>
           <CardBottom>
             <Price>{props.price}</Price>
-            <AddButton>
+            <AddButton onClick={handleAdd}>
               {props.btn}{" "}
               <AddIcon className="material-icons">{props.btn}</AddIcon>
             </AddButton>

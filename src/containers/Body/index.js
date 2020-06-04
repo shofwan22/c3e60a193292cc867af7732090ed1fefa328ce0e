@@ -36,6 +36,13 @@ class Body extends Component {
             },
           ],
         };
+
+        this.handleAddCart = this.handleAddCart.bind(this);
+    }
+
+    handleAddCart = (value) => {
+      console.log(value)
+      this.props.passHandleAdd(value);
     }
     render() {
         return (
@@ -52,11 +59,12 @@ class Body extends Component {
                         subtitle={d.subtitle}
                         price={d.price}
                         btn={d.btn}
+                        addCart={(value) => this.handleAddCart(value)}
                       />
                     );
                 })
-            }
-            
+            }           
+          
           </BodyContainer>
         );
     }

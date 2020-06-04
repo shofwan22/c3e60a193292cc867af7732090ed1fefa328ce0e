@@ -12,7 +12,6 @@ const ContainerHeader = styled.header`
 `;
 
 const WrapperHeader = styled.div`
-  max-width: 414px;
   margin: 0 auto;
 `;
 

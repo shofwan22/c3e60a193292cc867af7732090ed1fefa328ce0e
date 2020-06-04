@@ -75,6 +75,7 @@ const AddButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  outline: none;
 `;
 
 const AddIcon = styled.span`
