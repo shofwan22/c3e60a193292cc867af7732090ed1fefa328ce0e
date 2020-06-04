@@ -74,6 +74,7 @@ const InputForm = styled.input`
 const BoxResult = styled.div`
   margin-top: 8px;
   padding: 4px 8px 4px 8px;
+  display: ${(props) => (props.show ? "block" : "none")};
 `;
 
 const ResultText = styled.div`

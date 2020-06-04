@@ -38,6 +38,7 @@ const Result = [
 
 const Modal = (props) => {
     const [show, setShow] = useState(false);
+    const [showResult, setShowResult] = useState(false);
 
     useEffect(() => {
       if (props.showModal === true) {
@@ -53,6 +54,16 @@ const Modal = (props) => {
           props.closeHandle(false);
         }
     }
+
+    const handleInput = (e) => {
+        var res = e.target.value.length;
+        if(res >= 3) {
+            setShowResult(true)
+        }else{
+            setShowResult(false);
+        }
+    }
+
     return (
       <ModalContainer show={show} id="modal" onClick={handleClose}>
         <WrapModal>
@@ -69,9 +80,9 @@ const Modal = (props) => {
             <ModalHeader>Cek makanan yang tersedia di lokasi kamu!</ModalHeader>
             <BoxInput>
               <IconInput className="material-icons">location_on</IconInput>
-              <InputForm type="text"></InputForm>
+              <InputForm type="text" onChange={handleInput}></InputForm>
             </BoxInput>
-            <BoxResult>
+            <BoxResult show={showResult}>
               {Result.map((data, i) => {
                 return (
                   <ResultText key={i}>
